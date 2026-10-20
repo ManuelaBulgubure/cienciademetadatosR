@@ -1,9 +1,35 @@
-grafico_temperatura_mensual <- function(ids, colores = NULL, titulo = "Temperatura",
-                                        ruta = "datos/datos_estaciones.csv") {
+#' Gráfico de la temperatura media mensual
+#'
+#' Calcula la temperatura media de cada mes para cada estación y la grafica
+#' con una línea por estación.
+#'
+#' @param datos Data frame con datos meteorológicos diarios. Debe tener las
+#'   columnas `id`, `fecha` y `temperatura_abrigo_150cm`. Por ejemplo,
+#'   [estaciones].
+#' @param ids Vector con los identificadores de las estaciones a graficar.
+#'   Por defecto, todas las estaciones de `datos`.
+#' @param colores Vector de colores, uno por estación. Si es `NULL`, se eligen
+#'   colores al azar.
+#' @param titulo Título del gráfico.
+#'
+#' @return Un gráfico de `ggplot2`.
+#' @export
+#'
+#' @examples
+#' grafico_temperatura_mensual(estaciones, ids = c("NH0472", "NH0910"))
+#'
+#' grafico_temperatura_mensual(
+#'   estaciones,
+#'   ids = c("NH0472", "NH0910"),
+#'   colores = c("steelblue", "firebrick"),
+#'   titulo = "Temperatura media mensual"
+#' )
+grafico_temperatura_mensual <- function(datos, ids = unique(datos$id),
+                                        colores = NULL, titulo = "Temperatura") {
 
-  datos <- readr::read_csv(ruta, show_col_types = FALSE) |>
+  datos <- datos |>
     dplyr::filter(id %in% ids) |>
-    dplyr::mutate(mes = lubridate::month(lubridate::ymd(fecha))) |>
+    dplyr::mutate(mes = lubridate::month(as.Date(fecha))) |>
     dplyr::group_by(mes, id) |>
     dplyr::summarise(prom = mean(temperatura_abrigo_150cm, na.rm = TRUE),
                      .groups = "drop")
