@@ -1,0 +1,81 @@
+---
+output: github_document
+---
+
+<!-- README.md se genera a partir de README.Rmd. Editar este archivo. -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# cienciademetadatosR
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+`cienciademetadatosR` es un paquete de R para trabajar con datos meteorológicos
+diarios de estaciones del INTA. Sirve para descargar los datos de una estación,
+resumir sus temperaturas y graficar cómo varía la temperatura a lo largo del año.
+
+## Instalación
+
+Se puede instalar la versión en desarrollo desde
+[GitHub](https://github.com/joaquin0307/cienciademetadatosR):
+
+``` r
+# install.packages("devtools")
+devtools::install_github("joaquin0307/cienciademetadatosR")
+```
+
+## Funciones
+
+| Función | Qué hace |
+|---|---|
+| `leer_datos()` | Descarga los datos de una estación y los devuelve como data frame. |
+| `tabla_resumen_temperatura()` | Calcula mínima, máxima, promedio y desvío de la temperatura por estación. |
+| `grafico_temperatura_mensual()` | Grafica la temperatura media de cada mes, con una línea por estación. |
+
+El paquete también incluye el conjunto de datos `estaciones`, con registros
+diarios de temperatura de 5 estaciones entre 2010 y 2017, para usar en los
+ejemplos.
+
+## Ejemplo
+
+```{r example}
+library(cienciademetadatosR)
+
+head(estaciones)
+```
+
+Resumen de temperaturas de dos estaciones:
+
+```{r}
+tabla_resumen_temperatura(estaciones, ids = c("NH0472", "NH0910"))
+```
+
+Temperatura media mensual:
+
+```{r grafico}
+grafico_temperatura_mensual(
+  estaciones,
+  ids = c("NH0472", "NH0910"),
+  colores = c("steelblue", "firebrick"),
+  titulo = "Temperatura media mensual"
+)
+```
+
+Para un recorrido más completo, ver la viñeta:
+`vignette("cienciademetadatosR")`.
+
+## Autores
+
+- Máximo Bustos
+- Joaquín Larroux
+
+Trabajo realizado para el curso
+[Introducción a la programación](https://intro-programacion.netlify.app/).
