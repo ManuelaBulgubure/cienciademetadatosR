@@ -11,15 +11,26 @@
 #' @export
 #'
 #' @examples
+#'
 #' \donttest{
 #' datos <- leer_datos("NH0472", destino = tempfile(fileext = ".csv"))
 #' head(datos)
+#'
+#'  leer_datos("NH0472","datos/NH0910.csv")
+#'
+#'  leer_datos("NH0046","datos_estaciones.csv")
 #' }
+#'
 leer_datos <- function(id_estacion, destino) {
   url_NH <- paste0(
     "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/",
     id_estacion, ".csv"
   )
+
+  if (!id_estacion %in% c("NH0046", "NH0098", "NH0437", "NH0472", "NH0910")) {
+    cli::cli_abort("No se encontr\u00f3 la estaci\u00f3n {id_estacion}.")
+  }
+
   utils::download.file(url = url_NH, destfile = destino, mode = "wb", quiet = TRUE)
   readr::read_csv(destino, show_col_types = FALSE)
 }
