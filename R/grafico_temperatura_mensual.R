@@ -27,6 +27,10 @@
 grafico_temperatura_mensual <- function(datos, ids = unique(datos$id),
                                         colores = NULL, titulo = "Temperatura") {
 
+  if (!all(ids %in% datos$id)) {
+    cli::cli_abort("No se encontr\u00f3 alguna de las estaciones en {.arg datos}.")
+  }
+
   datos <- datos |>
     dplyr::filter(id %in% ids) |>
     dplyr::mutate(mes = lubridate::month(as.Date(fecha))) |>

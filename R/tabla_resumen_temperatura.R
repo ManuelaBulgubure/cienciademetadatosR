@@ -19,6 +19,11 @@
 #' tabla_resumen_temperatura(estaciones, ids = c("NH0472", "NH0910"))
 #' tabla_resumen_temperatura(estaciones)
 tabla_resumen_temperatura <- function(datos, ids = unique(datos$id)) {
+
+  if (!all(ids %in% datos$id)) {
+    cli::cli_abort("No se encontr\u00f3 alguna de las estaciones en {.arg datos}.")
+  }
+
   datos |>
     dplyr::filter(id %in% ids) |>
     dplyr::group_by(id) |>
