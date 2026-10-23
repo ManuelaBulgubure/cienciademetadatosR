@@ -32,7 +32,9 @@ jobs:
           print(cov)
 
           cat("\nLineas sin testear:\n")
-          print(covr::zero_coverage(cov)[, c("filename", "line")])
+          lineas <- as.data.frame(cov)
+          sin_testear <- lineas[lineas$value == 0, c("filename", "first_line")]
+          if (nrow(sin_testear) == 0) cat("Ninguna\n") else print(sin_testear)
 
           por_archivo <- covr::coverage_to_list(cov)
           resumen <- c(
