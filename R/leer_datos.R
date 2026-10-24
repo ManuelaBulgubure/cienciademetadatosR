@@ -16,9 +16,6 @@
 #' datos <- leer_datos("NH0472", destino = tempfile(fileext = ".csv"))
 #' head(datos)
 #'
-#'  leer_datos("NH0472","datos/NH0910.csv")
-#'
-#'  leer_datos("NH0046","datos_estaciones.csv")
 #' }
 #'
 leer_datos <- function(id_estacion, destino) {

@@ -20,8 +20,11 @@ Descarga el archivo con los datos diarios de una estación desde el
 repositorio del curso, lo guarda en \code{destino} y lo devuelve como data frame.
 }
 \examples{
+
 \donttest{
 datos <- leer_datos("NH0472", destino = tempfile(fileext = ".csv"))
 head(datos)
+
 }
+
 }

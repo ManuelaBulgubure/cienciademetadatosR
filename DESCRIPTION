@@ -16,6 +16,7 @@ BugReports: https://github.com/joaquin0307/cienciademetadatosR/issues
 Depends: 
     R (>= 4.1.0)
 Imports: 
+    cli,
     dplyr,
     ggplot2,
     lubridate,

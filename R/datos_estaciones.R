@@ -3,7 +3,7 @@
 #' Registros diarios de variables meteorologicas (temperatura, humedad,
 #' viento, radiacion, entre otras) medidos en cinco estaciones.
 #'
-#' @format Un tibble con NNNNN filas y 35 variables:
+#' @format Un tibble con 20.425 filas y 35 variables:
 #' \describe{
 #'   \item{id}{texto con el identificador de la estacion}
 #'   \item{fecha}{fecha de la medicion}
@@ -43,4 +43,4 @@
 #' }
 #'
 #' @source Repositorio del curso: <https://github.com/rse-r/intro-programacion>
-"datos_estaciones"
+"estaciones"

@@ -21,7 +21,9 @@ test_that("los valores del resumen son coherentes", {
   expect_type(tabla$promedio, "double")
 })
 
-test_that("con un id que no existe devuelve una tabla vacia", {
-  tabla <- tabla_resumen_temperatura(estaciones, ids = "NO_EXISTE")
-  expect_equal(nrow(tabla), 0)
+test_that("con un id que no existe da error", {
+  expect_error(
+    tabla_resumen_temperatura(estaciones, ids = "NO_EXISTE"),
+    "No se encontr"
+  )
 })
