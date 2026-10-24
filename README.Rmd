@@ -16,6 +16,9 @@ knitr::opts_chunk$set(
 # cienciademetadatosR
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/R-CMD-check.yaml)
+[![test-coverage](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/test-coverage.yaml)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 `cienciademetadatosR` es un paquete de R para trabajar con datos meteorológicos
