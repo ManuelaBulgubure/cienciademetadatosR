@@ -1,7 +1,7 @@
 
 <!-- README.md se genera a partir de README.Rmd. Editar este archivo. -->
 
-# cienciademetadatosR <img src="man/figures/logo.png" align="right" height="138" alt="" />
+# cienciademetadatosR <img src="man/figures/logo.jpeg" align="right" height="138" alt="" />
 
 <!-- badges: start -->
 
