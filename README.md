@@ -9,6 +9,8 @@
 [![test-coverage](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/joaquin0307/cienciademetadatosR/actions/workflows/test-coverage.yaml)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/joaquin0307/cienciademetadatosR/graph/badge.svg)](https://app.codecov.io/gh/joaquin0307/cienciademetadatosR)
 <!-- badges: end -->
 
 `cienciademetadatosR` es un paquete de R para trabajar con datos
