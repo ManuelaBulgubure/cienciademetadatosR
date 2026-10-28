@@ -23,7 +23,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr
+          extra-packages: any::covr, any::xml2
           needs: coverage
 
       - name: Test coverage
@@ -47,4 +47,14 @@ jobs:
             sprintf("| %s | %.1f%% |", names(por_archivo$filecoverage), por_archivo$filecoverage)
           )
           writeLines(resumen, Sys.getenv("GITHUB_STEP_SUMMARY"))
+
+          covr::to_cobertura(cov)
         shell: Rscript {0}
+
+      - uses: codecov/codecov-action@v5
+        with:
+          files: ./cobertura.xml
+          plugins: noop
+          disable_search: true
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
